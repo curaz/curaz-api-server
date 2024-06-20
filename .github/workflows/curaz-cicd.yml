@@ -59,16 +59,9 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-      
-    - name: Print secret identifiers for debugging
-      run: |
-        echo "SERVER_HOST starts with: ${SECRET_PARTIAL_START::${{ secrets.SERVER_HOST:0:1 }}}, length: ${#{{ secrets.SERVER_HOST }}}"
-        echo "SERVER_REMOTE_USER starts with: ${SECRET_PARTIAL_START::${{ secrets.SERVER_REMOTE_USER:0:1 }}}, length: ${#{{ secrets.SERVER_REMOTE_USER }}}"
-        echo "SERVER_PASSWORD starts with: ${SECRET_PARTIAL_START::${{ secrets.SERVER_PASSWORD:0:1 }}}, length: ${#{{ secrets.SERVER_PASSWORD }}}"
-      shell: bash
 
     - name: Deploy to server
-      uses: appleboy/ssh-action@v1.0.3
+      uses: appleboy/ssh-action@v0.1.3
       with:
         host: ${{ secrets.SERVER_HOST }}
         username: ${{ secrets.SERVER_REMOTE_USER }}
