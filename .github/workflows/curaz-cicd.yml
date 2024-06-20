@@ -67,6 +67,6 @@ jobs:
         username: ${{ secrets.SERVER_PASSWORD }}
         password: ${{ secrets.SERVER_REMOTE_USER }}
         script: |
-          cd /path/to/your/docker-compose-directory
+          cd /home/boaz/curaz/api-server
           docker-compose pull
           docker-compose up -d
