@@ -60,11 +60,11 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
       
-    - name: Print secrets for debugging
+    - name: Print secret identifiers for debugging
       run: |
-        echo "REMOTE_HOST: ${{ secrets.SERVER_HOST }}"
-        echo "REMOTE_USER: ${{ secrets.SERVER_REMOTE_USER }}"
-        echo "REMOTE_PASSWORD: ${{ secrets.SERVER_PASSWORD }}"
+        echo "SERVER_HOST starts with: ${SECRET_PARTIAL_START::${{ secrets.SERVER_HOST:0:1 }}}, length: ${#{{ secrets.SERVER_HOST }}}"
+        echo "SERVER_REMOTE_USER starts with: ${SECRET_PARTIAL_START::${{ secrets.SERVER_REMOTE_USER:0:1 }}}, length: ${#{{ secrets.SERVER_REMOTE_USER }}}"
+        echo "SERVER_PASSWORD starts with: ${SECRET_PARTIAL_START::${{ secrets.SERVER_PASSWORD:0:1 }}}, length: ${#{{ secrets.SERVER_PASSWORD }}}"
       shell: bash
 
     - name: Deploy to server
