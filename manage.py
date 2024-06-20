@@ -16,7 +16,7 @@ load_dotenv(verbose=True)
 
 def run_server(host: Optional[str] = None, port: Optional[int] = None, build:str = "dev") -> None:
     host = host or '0.0.0.0'
-    port = port or 9999
+    port = port or 8080
     if build == "dev":
         app = create_app(port)
     else:
