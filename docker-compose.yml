@@ -1,0 +1,14 @@
+version: '3'
+services:
+  curaz-api-server:
+    container_name: curaz-api-server
+    image: curaz/api-server:latest
+    networks:
+      - curaz-network
+    restart: always
+    ports:
+    - "8080:8080"
+
+networks:
+  curaz-network:
+    driver: bridge
