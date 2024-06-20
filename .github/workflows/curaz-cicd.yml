@@ -81,6 +81,6 @@ jobs:
           hostname
           pwd
           cd /home/boaz/curaz/api-server
-          docker compose pull
-          docker compose up -d
+          sudo docker compose pull
+          sudo docker compose up -d
         EOF
