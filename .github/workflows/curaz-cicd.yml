@@ -81,6 +81,6 @@ jobs:
           hostname
           pwd
           cd /home/boaz/curaz/api-server
-          sudo docker compose pull
-          sudo docker compose up -d
+          echo "$REMOTE_PASSWORD" | sudo -S docker compose pull
+          echo "$REMOTE_PASSWORD" | sudo -S docker compose up -d
         EOF
